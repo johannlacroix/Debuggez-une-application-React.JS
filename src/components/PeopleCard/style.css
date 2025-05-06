@@ -1,0 +1,38 @@
+.PeopleCard {
+  position: relative;
+  width: 288px;
+  height: 438px;
+  background: #ffffff;
+  border-radius: 144px 144px 0 0;
+  overflow: hidden;
+  margin: 16px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 32px;
+}
+.PeopleCard__imageContainer {
+  min-height: 252px;
+  overflow: hidden;
+}
+.PeopleCard__descriptionContainer {
+  color: #374151;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  width: 80%;
+}
+.PeopleCard__name {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.PeopleCard__position {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+  color: #5b32ff;
+}/*# sourceMappingURL=style.css.map */

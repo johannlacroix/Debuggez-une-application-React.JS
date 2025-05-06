@@ -1,0 +1,51 @@
+.ModalEvent {
+  font-family: "Manrope", sans-serif;
+  overflow: hidden;
+  width: 450px;
+  position: relative;
+  min-height: 669px;
+  margin-bottom: 32px;
+}
+.ModalEvent__imageContainer {
+  width: 100%;
+}
+.ModalEvent__imageContainer img {
+  width: 100%;
+}
+.ModalEvent__title {
+  position: absolute;
+  background-color: #5b32ff;
+  color: white;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 334px;
+  top: 280px;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.ModalEvent__titleLabel {
+  font-size: 16px;
+  font-weight: 600;
+}
+.ModalEvent__titlePeriode {
+  font-size: 14px;
+}
+.ModalEvent__imageContainer {
+  margin-bottom: 64px;
+}
+.ModalEvent__descriptionContainer {
+  text-align: center;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+.ModalEvent__descriptionContainer p {
+  font-size: 14px;
+}
+.ModalEvent__descriptionContainer div {
+  font-size: 16px;
+}/*# sourceMappingURL=style.css.map */
