@@ -12,41 +12,41 @@ const PER_PAGE = 9;
 const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
-  const [currentPage, setCurrentPage] = useState(1); // Ajout d'un state react pour gérer les evnts
+  const [currentPage, setCurrentPage] = useState(1); // ajout d'un state react pour gérer les evnts
 
   if (error) return <div>An error occurred</div>; // Déplacé avant le return + simplifié)
-  if (!data) return "loading"; // Déplacé avant le return + simplifié)
+  if (!data) return "loading"; // Déplacé avant le return et simplifié)
 
-  // Modifié : filtrage + découpage remplacés par une seule opération
+  // Modif : filtrage + découpage remplacés en 1 une seule opération
   const allFilteredEvents = (data?.events || []).filter(
     (event) => type == null || event.type === type
   );
 
-  // Ajout : logique de pagination avec slice()
-  const start = (currentPage - 1) * PER_PAGE; // Ajout : calcul de l'index de début
-  const paginatedEvents = allFilteredEvents.slice(start, start + PER_PAGE); // Ajout : découpage des événements pour la page actuelle
-  // Ajout : calcul du nombre total de pages
-  const totalPages = Math.ceil(allFilteredEvents.length / PER_PAGE); // Ajout
+  // Ajout : logique pagination avec .slice
+  const start = (currentPage - 1) * PER_PAGE; // ajout : calcul de index de début
+  const paginatedEvents = allFilteredEvents.slice(start, start + PER_PAGE); // ajout : découpage des événements pour page actuelle
+   
+  const totalPages = Math.ceil(allFilteredEvents.length / PER_PAGE); // Ajout pour calcul nbre total pages
 
-  // Modifié : changeType réinitialise aussi la page courante
+  // Modif : changeType réinitialise aussi la page en cours
   const changeType = (evtType) => {
-    setCurrentPage(1); // Ajout pour réinitialiser la page courante à 1
-    setType(evtType); // Modifié :changeType prend paramètre evtType
+    setCurrentPage(1); // Ajout : réinitialise page courante à 1
+    setType(evtType); // Modif :changeType prend paramètre evtType
   };
 
-  // Modifié : typeList devient un tableau avec Array.from
+  // Modif : typeList transformé en tableau avec Array.from
   const typeList = Array.from(new Set(data.events.map((event) => event.type))); 
 
   return (
     <>
       <h3 className="SelectTitle">Catégories</h3>
       <Select
-        selection={typeList} // On utilise maintenant typeList
+        selection={typeList} // utilisation de typeList
         onChange={(value) => (value ? changeType(value) : changeType(null))}
       />
 
       <div id="events" className="ListContainer">
-        {paginatedEvents.map((event) => ( // Modifié (remplace filteredEvents)
+        {paginatedEvents.map((event) => ( // Modif (remplace filteredEvents)
           <Modal key={event.id} Content={<ModalEvent event={event} />}>
             {({ setIsOpened }) => (
               <EventCard
@@ -65,10 +65,10 @@ const EventList = () => {
         {[...Array(totalPages)].map((_, n) => ( // Modif : totalPages au lieu de pageNumber
           <a
           // key={0}
-            n={0} // Modifié : n est l'index de la page
+            n={0} // Modifié : "n" = index de la page
             href="#events"
             onClick={() => setCurrentPage(n + 1)}
-            className={currentPage === n + 1 ? "active" : ""} // AJOUTÉ : pour style actif
+            className={currentPage === n + 1 ? "active" : ""} // AJOUTE : pour style "actif"
           >
             {n + 1}
           </a>
