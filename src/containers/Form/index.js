@@ -72,7 +72,6 @@ const Form = ({ onSuccess, onError }) => {
         </Button>
       </div>
 
-
       <div className="col">
         <Field
           name="Message"

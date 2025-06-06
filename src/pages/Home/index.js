@@ -14,7 +14,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const {last} = useData()
-  console.log(last, "last");
+  // console.log(last, "last");
   // const { data } = useData();
   // const last = data?.events?.[0];
 
@@ -123,7 +123,7 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
-    {/* On vérifie la présence de last : évite tout affichage ou warning inutile si data n’est pas encore chargé */}
+    {/* on vérifie la présence de last : évite tout affichage/ warning inutile si data pas encore chargé */}
         {last && last.cover && (
   <EventCard
     imageSrc={last.cover}
