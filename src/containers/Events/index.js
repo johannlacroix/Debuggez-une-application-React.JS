@@ -62,18 +62,18 @@ const EventList = () => {
       </div>
 
       <div className="Pagination">
-        {[...Array(totalPages)].map((_, n) => ( // Modif : totalPages au lieu de pageNumber
-          <a
-          // key={0}
-            n={0} // Modifié : "n" = index de la page
-            href="#events"
-            onClick={() => setCurrentPage(n + 1)}
-            className={currentPage === n + 1 ? "active" : ""} // AJOUTE : pour style "actif"
-          >
-            {n + 1}
-          </a>
-        ))}
-      </div>
+  {[...Array(totalPages)].map((_, n) => (
+    <a
+  key={`page-${n}`} // eslint-disable-line react/no-array-index-key
+  href="#events"
+  onClick={() => setCurrentPage(n + 1)}
+  className={currentPage === n + 1 ? "active" : ""}
+>
+  {n + 1}
+</a>
+  ))}
+</div>
+
     </>
   );
 };

@@ -29,7 +29,7 @@ export const DataProvider = ({ children }) => {
     }
   }, []);
   useEffect(() => {
-    if (data) {setLast(data.events[data.events.length-1]) ; console.log("Edoiuard", data); return} 
+    if (data) {setLast(data.events[data.events.length-1]) ; return} 
    
     getData();
   });
